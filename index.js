@@ -6,11 +6,10 @@ const cors = require('cors')
 
 const app = express();
 
-const corsOptions = {
+/* const corsOptions = {
   origin: '*',
   optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204 
-}
-app.use(cors(corsOptions));
+} */
 
 async  () => {
   await mongoose.connect(process.env.MONGOPATH, { useNewUrlParser:true, useUnifiedTopology: true }).then(async mongoose => {
@@ -25,15 +24,15 @@ async  () => {
   mongoose.Promise = global.Promise;
 };
 
-  app.use((req, res, next) => {
+  /* app.use((req, res, next) => {
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT");
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Access-Control-Allow-Origin, Accept, Authorization");
     next();
-  });
+  }); */
 
   app.use(express.json());
-
+  app.use(cors());
   app.use('/api', routes);
 
   app.use((err, req, res, next) => {
