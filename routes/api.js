@@ -9,7 +9,8 @@ router.get('/client', async (req, res) => {
       next()
     })
   } catch (error) {
-    throw error
+    console.log(error)
+    process.exit(1)
   }
 })
 router.post('/client', async (req, res, next) => {
@@ -19,7 +20,8 @@ router.post('/client', async (req, res, next) => {
       next()
     })
   } catch (error) {
-    throw error
+    console.log(error)
+    process.exit(1)
   }
 })
 
