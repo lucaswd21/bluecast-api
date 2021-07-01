@@ -1,4 +1,8 @@
 {
+  "scripts": {
+    "start": "node index.js"
+  },
+
   "name": "triyo-test-api",
   "version": "1.0.0",
   "description": "tryio test api",
