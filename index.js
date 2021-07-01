@@ -5,7 +5,7 @@ const mongoose = require('mongoose');
 
 const app = express()
 
-mongoose.connect('mongodb://localhost/tryiotest', { useNewUrlParser:true, useUnifiedTopology: true });
+await mongoose.connect('mongodb://localhost/tryiotest', { useNewUrlParser:true, useUnifiedTopology: true });
 mongoose.Promise = global.Promise
 
 app.use((req, res, next) => {
