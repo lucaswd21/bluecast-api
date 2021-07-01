@@ -5,6 +5,8 @@ const Client = require('../models/client');
 router.get('/client', (req, res) => {
   Client.find({}).then((clients) => {
     res.send(clients)
+  }).catch(err => {
+    throw new Error(err);
   })
 })
 router.post('/client', (req, res, next) => {
