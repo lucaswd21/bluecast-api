@@ -3,16 +3,26 @@ const router = express.Router();
 const Client = require('../models/client');
 
 router.get('/client', (req, res) => {
-  Client.find({}).then((clients) => {
-    res.send(clients)
-  }).catch(err => {
-    throw new Error(err);
-  })
+  try {
+    Client.find({}).then((clients) => {
+      res.send(clients)
+      next()
+    })
+  } catch (error) {
+    throw error
+    next()
+  }
 })
 router.post('/client', (req, res, next) => {
-  Client.create(req.body).then((client) => {
-    res.send(client);
-  }).catch(next)
+  try {
+    Client.create(req.body).then((client) => {
+      res.send(client);
+      next()
+    })
+  } catch (error) {
+    throw error
+    next()
+  }
 })
 
 module.exports = router ;
