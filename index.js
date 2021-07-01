@@ -23,6 +23,9 @@ app.use((err, req, res, next) => {
   res.status(422).send({error: err.message})
 })
 
-app.listen(process.env.port || 4000, '0.0.0.0', () => {
-  console.log('Ouvindo requisições!!!')
+var server_port = process.env.PORT || 80;
+var server_host = process.env.HOST || '0.0.0.0';
+
+app.listen(server_port, server_host, () => {
+  console.log('Server online!')
 })
