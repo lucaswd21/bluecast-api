@@ -23,6 +23,6 @@ app.use((err, req, res, next) => {
   res.status(422).send({error: err.message})
 })
 
-app.listen(process.env.port || 4000, () => {
+app.listen(process.env.port || 4000, '0.0.0.0', () => {
   console.log('Ouvindo requisições!!!')
 })
