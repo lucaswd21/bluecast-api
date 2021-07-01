@@ -3,10 +3,12 @@ const routes =  require('./routes/api.js');
 // const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 
-const app = express()
+const app = express();
 
-mongoose.connect('mongodb://localhost/tryiotest', { useNewUrlParser:true, useUnifiedTopology: true });
-mongoose.Promise = global.Promise;
+async  () => {
+  await mongoose.connect('mongodb://localhost/tryiotest', { useNewUrlParser:true, useUnifiedTopology: true });
+  mongoose.Promise = global.Promise;
+};
 
   app.use((req, res, next) => {
     res.header("Access-Control-Allow-Origin", "*");
