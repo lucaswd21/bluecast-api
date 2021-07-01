@@ -6,7 +6,7 @@ const mongoose = require('mongoose');
 const app = express();
 
 async  () => {
-  await mongoose.connect('mongodb://localhost/tryiotest', { useNewUrlParser:true, useUnifiedTopology: true });
+  await mongoose.connect(process.env.MONGOPATH, { useNewUrlParser:true, useUnifiedTopology: true });
   mongoose.Promise = global.Promise;
 };
 
