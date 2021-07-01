@@ -6,7 +6,6 @@ router.get('/client', async (req, res) => {
   try {
     await Client.find({}).then((clients) => {
       res.send(clients)
-      next()
     })
   } catch (error) {
     console.log(error)
@@ -17,7 +16,6 @@ router.post('/client', async (req, res, next) => {
   try {
     await Client.create(req.body).then((client) => {
       res.send(client);
-      next()
     })
   } catch (error) {
     console.log(error)

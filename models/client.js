@@ -7,11 +7,11 @@ const ClientSchema = new Schema({
     required: [true, 'Name field is required']
   },
   value: {
-    type: Number,
+    type: String,
     required: [true, 'Value field is required']
   },
   date: {
-    type: Date,
+    type: String,
     required: [true, 'Date field is required']
   },
 });
