@@ -2,8 +2,15 @@ const express = require('express');
 const routes =  require('./routes/api.js');
 // const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
+const cors = require('cors')
 
 const app = express();
+
+const corsOptions = {
+  origin: '*',
+  optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204 
+}
+app.use(cors(corsOptions));
 
 async  () => {
   await mongoose.connect(process.env.MONGOPATH, { useNewUrlParser:true, useUnifiedTopology: true }).then(async mongoose => {
