@@ -12,7 +12,7 @@ const app = express();
 } */
 
 
-mongoose.connect('mongodb://localhost/tryiotest', { useNewUrlParser:true, useUnifiedTopology: true })
+mongoose.connect('mongodb://localhost/bluecast', { useNewUrlParser:true, useUnifiedTopology: true })
 mongoose.Promise = global.Promise;
 
 
